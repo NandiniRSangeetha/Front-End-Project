@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explore Hub</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+
+
+</head>
+<body >
+    <div class="navbar">
+        <a href="#" class="brand">Explore Hub</a>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Book</a></li>
+            <li><a href="#">Packages</a>
+                <ul>
+                    <li><a href="#">United States</a></li>
+                    <li><a href="#">India</a></li>
+                    <li><a href="#">France</a></li>
+                    <li><a href="#">Germany</a></li>
+                </ul>
+            </li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">Gallery</a></li>
+            <li><a href="#">About</a></li>
+        </ul>
+        <div class="buttons">
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#loginModal">Login</button>
+             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#registerModal">Register</button>
+             <!-- <button onclick="openRegisterWindow()" class="btn btn-primary">Register</button> -->
+        </div> 
+    </div>
+    
+    <!-- Hero Section with Background Image and Centered Content -->
+    <div class="hero-section">
+        <h1>Welcome to Explore Hub</h1>
+        <h2 id="dynamic-country">Visit United States</h2>
+        <button class="book-now">Book Now</button>
+    </div>
+
+
+
+    
+<!-- Login Modal -->
+<div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content" style="width: 90%; max-width: 400px;">
+            <div class="modal-header">
+                <h5 class="modal-title" id="loginModalLabel">Login</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" id="loginModelClose">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="loginForm">
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Email ID</label>
+                        <input type="email" class="form-control" id="email" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="password" class="form-label">Password</label>
+                        <input type="password" class="form-control" id="password" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary w-100">Login</button>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <p>Don't have an account? <a a href="#" id="registerLink">Register here</a></p>
+            </div>
+        </div>
+    </div>
+</div>
+
+  
+
+  <!-- Register Modal -->
+<div class="modal fade" id="registerModal" tabindex="-1" aria-labelledby="registerModalLabel" aria-hidden="true" style="display: none;">
+    <div class="modal-dialog custom-modal-size"> <!-- Smaller modal size -->
+      <div class="modal-content custom-modal-color"> <!-- Custom color class -->
+        <div class="modal-header">
+          <h5 class="modal-title" id="registerModalLabel">Register</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close" id="registerModelClose">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <!-- Registration Form -->
+          <form id="registerForm" onsubmit="return validateForm()">
+            <div class="form-group">
+              <label for="fullname">Full Name</label>
+              <input type="text" class="form-control" id="fullname" required>
+            </div>
+            <div class="form-group">
+              <label for="contact">Contact</label>
+              <input type="text" class="form-control" id="contact" required>
+            </div>
+            <div class="form-group">
+              <label for="dob">Date of Birth</label>
+              <input type="date" class="form-control" id="dob" required>
+            </div>
+            <div class="form-group">
+              <label for="email">Email ID</label>
+              <input type="email" class="form-control" id="email" required>
+            </div>
+            <div class="form-group">
+              <label for="password">Password</label>
+              <input type="password" class="form-control" id="password" required>
+            </div>
+            <div class="form-group">
+                <label>Gender</label><br>
+                <div class="d-flex align-items-center">
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="gender" id="genderMale" value="Male" required>
+                    <label class="form-check-label" for="genderMale">Male</label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="gender" id="genderFemale" value="Female" required>
+                    <label class="form-check-label" for="genderFemale">Female</label>
+                  </div>
+                </div>
+              </div>
+              
+            <button type="submit" class="btn btn-primary btn-block">Register</button>
+          </form>
+          <!-- Link to Login Page -->
+          <p class="mt-3 text-center">
+            Already have an account? <a href="login.html">Login here</a>.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+   
+    <div class="brand-section">
+        <div class="left">
+             <h3>Explore Hub</h3>
+            <img src="images\main-Logo.jpg" alt="Brand Image" class="brand-image">
+        </div>
+        <div class="right">
+            <form id="booking-form" onsubmit="return submitForm(event);">
+                <label for="destination">Where to<span class="required">*</span></label>
+                <select id="destination" required>
+                    <option value="Paris">Paris</option>
+                    <option value="New York">New York</option>
+                    <option value="Tokyo">Tokyo</option>
+                    <option value="London">London</option>
+                    <option value="Dubai">Dubai</option>
+                    <option value="Sydney">Sydney</option>
+                    <option value="Rome">Rome</option>
+                    <option value="Barcelona">Barcelona</option>
+                    <option value="Bali">Bali</option>
+                </select>
+        
+                <label for="persons">How Many Persons<span class="required">*</span></label>
+                <input type="number" id="persons" name="persons" min="1" required>
+        
+                <div>
+                    <label for="start-date">Start Date<span class="required">*</span></label>
+                    <input type="date" id="start-date" name="start-date" required onchange="updateEndDate()">
+                </div>
+        
+                <div>
+                    <label for="end-date">End Date<span class="required">*</span></label>
+                    <input type="date" id="end-date" name="end-date" required>
+                </div>
+        
+                <label for="description">Description<span class="required">*</span></label>
+                <textarea id="description" name="description" minlength="50" maxlength="500" required oninput="updateCharacterCount()"></textarea>
+                <div id="charCount">500 characters remaining</div>
+                <br/>
+                <button type="submit"  class="book-btn">Book Now</button>
+            </form>
+        </div>
+        
+      
+        
+        
+    </div>
+  
+    <div class="package-gallery">
+        <h2>Explore Our Packages</h2>
+        
+        <!-- First Row -->
+        <div class="package-row">
+            <!-- Package 1 -->
+            <div class="package-card">
+                <img src="images\Packages\paris.jpg" alt="Paris">
+                <div class="package-card-content">
+                    <h3>Paris Getaway</h3>
+                    <p>Experience the romantic charm of Paris with visits to the Eiffel Tower, Louvre Museum, and strolls along the Seine River.</p>
+                    <p class="price">Price: <strong>$1,200</strong></p>
+                    <p class="rating">★★★★☆</p>
+                    <a href="#" class="book-btn">Book Now</a>
+                </div>
+            </div>
+            
+            <!-- Package 2 -->
+            <div class="package-card">
+                <img src="images\Packages\newyork.jpg" alt="New York">
+                <div class="package-card-content">
+                    <h3>New York Explorer</h3>
+                    <p>Discover the vibrant life of New York City with tours of Times Square, Central Park, and the Statue of Liberty.</p>
+                    <p class="price">Price: <strong>$1,500</strong></p>
+                    <p class="rating">★★★★★</p>
+                    <a href="#" class="book-btn">Book Now</a>
+                </div>
+            </div>
+            
+            <!-- Package 3 -->
+            <div class="package-card">
+                <img src="images\Packages\tokyo.jpg" alt="Tokyo">
+                <div class="package-card-content">
+                    <h3>Tokyo Adventure</h3>
+                    <p>Immerse yourself in Tokyo's unique blend of traditional and modern culture with visits to temples, skyscrapers, and bustling markets.</p>
+                    <p class="price">Price: <strong>$1,300</strong></p>
+                    <p class="rating">★★★★☆</p>
+                    <a href="#" class="book-btn">Book Now</a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Second Row -->
+        <div class="package-row">
+            <!-- Package 4 -->
+            <div class="package-card">
+                <img src="images\Packages\london.jpg" alt="London">
+                <div class="package-card-content">
+                    <h3>London Highlights</h3>
+                    <p>Explore London's iconic landmarks including the Tower Bridge, Buckingham Palace, and the British Museum.</p>
+                    <p class="price">Price: <strong>$1,100</strong></p>
+                    <p class="rating">★★★★☆</p>
+                    <a href="#" class="book-btn">Book Now</a>
+                </div>
+            </div>
+            
+            <!-- Package 5 -->
+            <div class="package-card">
+                <img src="images\Packages\dubai.jpg" alt="Dubai">
+                <div class="package-card-content">
+                    <h3>Dubai Luxury Tour</h3>
+                    <p>Enjoy the opulence of Dubai with visits to the Burj Khalifa, luxurious shopping malls, and desert safaris.</p>
+                    <p class="price">Price: <strong>$1,800</strong></p>
+                    <p class="rating">★★★★★</p>
+                    <a href="#" class="book-btn">Book Now</a>
+                </div>
+            </div>
+            
+            <!-- Package 6 -->
+            <div class="package-card">
+                <img src="images\Packages\sydney.jpg" alt="Sydney">
+                <div class="package-card-content">
+                    <h3>Sydney Escape</h3>
+                    <p>Experience the beauty of Sydney with tours of the Opera House, Harbour Bridge, and relaxing at Bondi Beach.</p>
+                    <p class="price">Price: <strong>$1,400</strong></p>
+                    <p class="rating">★★★★☆</p>
+                    <a href="#" class="book-btn">Book Now</a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Third Row -->
+        <div class="package-row">
+            <!-- Package 7 -->
+            <div class="package-card">
+                <img src="images\Packages\rome.jpg" alt="Rome">
+                <div class="package-card-content">
+                    <h3>Rome Heritage Tour</h3>
+                    <p>Discover the ancient wonders of Rome, including the Colosseum, Roman Forum, and Vatican City.</p>
+                    <p class="price">Price: <strong>$1,300</strong></p>
+                    <p class="rating">★★★★☆</p>
+                    <a href="#" class="book-btn">Book Now</a>
+                </div>
+            </div>
+            
+            <!-- Package 8 -->
+            <div class="package-card">
+                <img src="images\Packages\barcelno.jpg" alt="Barcelona">
+                <div class="package-card-content">
+                    <h3>Barcelona Culture Trip</h3>
+                    <p>Immerse yourself in Barcelona's rich culture with visits to Sagrada Familia, Park Güell, and the Gothic Quarter.</p>
+                    <p class="price">Price: <strong>$1,250</strong></p>
+                    <p class="rating">★★★★☆</p>
+                    <a href="#" class="book-btn">Book Now</a>
+                </div>
+            </div>
+            
+            <!-- Package 9 -->
+            <div class="package-card">
+                <img src="images\Packages\bali.jpg" alt="Bali">
+                <div class="package-card-content">
+                    <h3>Bali Beach Retreat</h3>
+                    <p>Relax and rejuvenate in Bali with its stunning beaches, vibrant nightlife, and serene temples.</p>
+                    <p class="price">Price: <strong>$1,600</strong></p>
+                    <p class="rating">★★★★★</p>
+                    <a href="#" class="book-btn">Book Now</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="services-section">
+        <h2>Our Services</h2>
+        <div class="services-container">
+            <div class="service-card">
+                <img src="images\Services\affordable.jpg" alt="Affordable Hotels">
+                <h3>Affordable Hotels</h3>
+                <p>Stay comfortably without breaking the bank. We offer a range of affordable hotel options to suit your budget.</p>
+            </div>
+            
+            <div class="service-card">
+                <img src="images\Services\food.jpg" alt="Food & Drinks">
+                <h3>Food & Drinks</h3>
+                <p>Enjoy a variety of local and international cuisines. Our packages include meals at top-rated restaurants.</p>
+            </div>
+            
+            <div class="service-card">
+                <img src="images\Services\safety.jpg" alt="Safety Guide">
+                <h3>Safety Guide</h3>
+                <p>Your safety is our priority. Receive comprehensive safety guides and assistance throughout your journey.</p>
+            </div>
+            
+            <div class="service-card">
+                <img src="images\Services\support.jpg" alt="24/7 Customer Support">
+                <h3>24/7 Customer Support</h3>
+                <p>We are here for you around the clock. Our support team is available 24/7 to assist you with any needs.</p>
+            </div>
+            
+            <div class="service-card">
+                <img src="images\Services\localTours.jpg" alt="Local Tours">
+                <h3>Local Tours</h3>
+                <p>Explore local attractions with our guided tours. Experience the culture, history, and beauty of each destination.</p>
+            </div>
+            
+            <div class="service-card">
+                <img src="images\Services\insurance.jpg" alt="Travel Insurance">
+                <h3>Travel Insurance</h3>
+                <p>Travel with peace of mind. Our packages include comprehensive travel insurance for your safety and security.</p>
+            </div>
+        </div>
+    </div>
+   
+    <div class="slider-section">
+        <h2>Gallery</h2>
+        <div class="slider">
+            <div class="slides">
+                <div class="slide active">
+                    <img src="images/Gallery/Gallery 1.jpg" alt="Gallery Image 1">
+                </div>
+                <div class="slide">
+                    <img src="images/Gallery/Gallery 2.jpg" alt="Gallery Image 2">
+                </div>
+                <div class="slide">
+                    <img src="images/Gallery/Gallery 3.jpg" alt="Gallery Image 3">
+                </div>
+                <div class="slide">
+                    <img src="images/Gallery/Gallery 4.jpg" alt="Gallery Image 4">
+                </div>
+                <div class="slide">
+                    <img src="images/Gallery/Gallery 5.jpg" alt="Gallery Image 5">
+                </div>
+                <div class="slide">
+                    <img src="images/Gallery/Gallery 6.jpg" alt="Gallery Image 6">
+                </div>
+                <div class="slide">
+                    <img src="images/Gallery/Gallery 7.jpg" alt="Gallery Image 7">
+                </div>
+                <div class="slide">
+                    <img src="images/Gallery/Gallery 8.jpg" alt="Gallery Image 8">
+                </div> 
+                <div class="slide">
+                    <img src="images/Gallery/Gallery 9.jpg" alt="Gallery Image 9">
+                </div> 
+                <div class="slide">
+                    <img src="images/Gallery/Gallery 10.jpg" alt="Gallery Image 10">
+                </div>
+              
+            </div>
+            <button class="prev" onclick="changeSlide(-1)">&#10094;</button>
+            <button class="next" onclick="changeSlide(1)">&#10095;</button>
+        </div>
+    </div>
+     
+    <div class="about-us-section">
+        <div class="about-content">
+            <div class="about-image">
+                <img src="images/CompanyLogo.jpg" alt="Company Team">
+            </div>
+            <div class="about-text">
+                <h2>About Us</h2>
+                <p>
+                    At Explore Hub, we bring unforgettable travel experiences through tailored itineraries and top-notch service. We offer a wide range of services, from exclusive travel packages to unique local experiences across the world. Our goal is to make each journey as seamless and memorable as possible.
+                </p>
+                <p>
+                    With our dedicated team, advanced booking system, and personalized guidance, we ensure that every adventure is crafted to meet your expectations.
+                </p>
+                <button class="know-more-btn">Know More</button>
+            </div>
+        </div>
+    </div>
+    
+    <footer class="footer">
+        <div class="footer-container">
+            <!-- Brand Section -->
+            <div class="footer-brand">
+                <img src="images/CompanyLogo.jpg" alt="Brand Logo" class="brand-logo">
+                <p class="brand-description">Your gateway to unforgettable journeys and hidden gems around the world.</p>
+                <div class="social-media">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+    
+            <!-- Quick Links Section -->
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#">Our Services</a></li>
+                    <li><a href="#">Career Path</a></li>
+                    <li><a href="#">Careers</a></li>
+                    <li><a href="#">Our Team</a></li>
+                </ul>
+            </div>
+    
+            <!-- Contact Section -->
+            <div class="footer-contact">
+                <h4>Contact</h4>
+                <p><i class="fas fa-map-marker-alt"></i> Bengaluru, Karnataka, India</p>
+                <p><i class="fas fa-envelope"></i> <a href="mailto:reachout@explorehub.com">reachout@explorehub.com</a></p>
+                <a href="#" class="whatsapp-contact"><i class="fab fa-whatsapp"></i> Get in touch with us on WhatsApp</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Explore Hub. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+
+    
+    
+    <script src="js/script.js"></script>
+  
+</body>
+</html>
