@@ -632,10 +632,12 @@ button:hover {
 }
 
 
-
+body.modal-open {
+    overflow: hidden;
+  }
 .custom-modal-size {
-    max-width: 500px; /* Decrease width */
-    margin-top: 50px; /* Space from top */
+    max-width: 400px; /* Decrease width */
+    margin-top: 20px; /* Space from top */
   }
   .modal-content {
     padding: 15px 20px;
@@ -646,7 +648,7 @@ button:hover {
     border-radius: 8px;
   }
   .modal-body {
-    padding: 20px; /* Reduce padding for a more compact form */
+    padding: 15px; /* Reduce padding for a more compact form */
   }
   /* Additional styling for form elements */
   .modal-title {

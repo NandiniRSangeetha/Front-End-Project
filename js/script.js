@@ -94,45 +94,129 @@ window.onload = () => {
 };
 
 
-document.getElementById('registerLink').addEventListener('click', function(event) {
-    event.preventDefault(); // Prevent the default link behavior
+// document.getElementById('registerLink').addEventListener('click', function(event) {
+//     event.preventDefault(); // Prevent the default link behavior
 
-    // Close the current modal
-    document.getElementById('loginModal').style.display = 'none';
+//     // Close the current modal
+//     document.getElementById('loginModal').style.display = 'none';
 
-    // Open the registration modal
-    document.getElementById('registerModal').style.display = 'block';
-});
+//     // Open the registration modal
+//     document.getElementById('registerModal').style.display = 'block';
+// });
 
-// Close buttons for modals
-document.getElementById('loginModelClose').addEventListener('click', function() {
-    document.getElementById('loginModal').style.display = 'none';
-});
+// // Close buttons for modals
+// document.getElementById('loginModelClose').addEventListener('click', function() {
+//     document.getElementById('loginModal').style.display = 'none';
+// });
 
-document.getElementById('registerModelClose').addEventListener('click', function() {
-    document.getElementById('registerModal').style.display = 'none';
-});
-
-
+// document.getElementById('registerModelClose').addEventListener('click', function() {
+//     document.getElementById('registerModal').style.display = 'none';
+// });
 
 
-function validateForm() {
-    const fullname = document.getElementById("fullname").value;
-    const contact = document.getElementById("contact").value;
-    const dob = document.getElementById("dob").value;
-    const email = document.getElementById("email").value;
-    const password = document.getElementById("password").value;
-    
-    if (!fullname || !contact || !dob || !email || !password) {
-        alert("All fields are required.");
+
+
+function validateRegisterForm() {
+    // Get form field values
+    var fullName = document.getElementById("fullName").value;
+    var contactNumber = document.getElementById("contactNumber").value;
+    var email = document.getElementById("email").value;
+    var password = document.getElementById("password").value;
+    var dob = document.getElementById("dob").value;
+
+    // Regular expression for email validation
+    var emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+
+    // Contact number validation (basic validation for phone numbers)
+    var phonePattern = /^[0-9]{10}$/;
+
+    // Clear previous error messages
+    document.getElementById("nameHelp").innerText = "";
+    document.getElementById("contactHelp").innerText = "";
+    document.getElementById("emailHelp").innerText = "";
+    document.getElementById("passwordHelp").innerText = "";
+    document.getElementById("dobHelp").innerText = "";
+
+    // Full Name Validation (Should not be empty)
+    if (fullName.trim() === "") {
+        document.getElementById("nameHelp").innerText = "Full name cannot be empty.";
+        return false;  // Prevent form submission
+    }
+
+    // Contact Number Validation (Should be exactly 10 digits)
+    if (!contactNumber.match(phonePattern)) {
+        document.getElementById("contactHelp").innerText = "Please enter a valid 10-digit phone number.";
         return false;
     }
 
+    // Email Validation
+    if (!email.match(emailPattern)) {
+        document.getElementById("emailHelp").innerText = "Please enter a valid email address.";
+        return false;
+    }
+
+    // Password Validation (At least 6 characters)
     if (password.length < 6) {
-        alert("Password should be at least 6 characters.");
+        document.getElementById("passwordHelp").innerText = "Password must be at least 6 characters.";
         return false;
     }
-    
-    return true;
+
+    // Date of Birth Validation (Age must be at least 18)
+    if (dob === "") {
+        document.getElementById("dobHelp").innerText = "Please select your date of birth.";
+        return false;
+    }
+
+    var birthDate = new Date(dob);
+    var today = new Date();
+    var age = today.getFullYear() - birthDate.getFullYear();
+    var month = today.getMonth() - birthDate.getMonth();
+
+    if (month < 0 || (month === 0 && today.getDate() < birthDate.getDate())) {
+        age--;
+    }
+
+    if (age < 18) {
+        document.getElementById("dobHelp").innerText = "You must be at least 18 years old.";
+        return false;
+    }
+
+    // If all validations pass
+    alert("Registration successful!");
+    return true;  // Form can be submitted
 }
+
+
+// Validate login form before submission
+function validateLoginForm() {
+    var email = document.getElementById("loginEmail").value;
+    var password = document.getElementById("loginPassword").value;
+    
+    var emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+  
+    if (!email.match(emailPattern)) {
+      alert("Please enter a valid email address.");
+      return false; 
+    }
+  
+    if (password === "") {
+      alert("Please enter your password.");
+      return false; 
+    }
+  
+    alert("Login successful!");  
+    return true; 
+  }
+
+
+  $('#loginModal').on('shown.bs.modal', function () {
+    // Disable body scroll when modal is opened
+    $('body').css('overflow', 'hidden');
+});
+
+$('#loginModal').on('hidden.bs.modal', function () {
+    // Enable body scroll when modal is closed
+    $('body').css('overflow', 'auto');
+});
+  
 

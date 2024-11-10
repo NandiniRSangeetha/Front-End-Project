@@ -59,7 +59,7 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <div class="modal-body">
+            <div class="modal-body" onsubmit="return validateLoginForm()">
                 <form id="loginForm">
                     <div class="mb-3">
                         <label for="email" class="form-label">Email ID</label>
@@ -93,27 +93,38 @@
         </div>
         <div class="modal-body">
           <!-- Registration Form -->
-          <form id="registerForm" onsubmit="return validateForm()">
+          <form id="registerForm" onsubmit="return validateRegisterForm()">
             <div class="form-group">
-              <label for="fullname">Full Name</label>
-              <input type="text" class="form-control" id="fullname" required>
-            </div>
-            <div class="form-group">
-              <label for="contact">Contact</label>
-              <input type="text" class="form-control" id="contact" required>
-            </div>
-            <div class="form-group">
-              <label for="dob">Date of Birth</label>
-              <input type="date" class="form-control" id="dob" required>
-            </div>
-            <div class="form-group">
-              <label for="email">Email ID</label>
-              <input type="email" class="form-control" id="email" required>
-            </div>
-            <div class="form-group">
-              <label for="password">Password</label>
-              <input type="password" class="form-control" id="password" required>
-            </div>
+                <label for="fullName">Full Name</label>
+                <input type="text" class="form-control" id="fullName" placeholder="Enter your full name" required>
+                <small id="nameHelp" class="form-text text-muted"></small>
+              </div>
+              <div class="form-group">
+                <label for="contactNumber">Contact Number</label>
+                <input type="text" class="form-control" id="contactNumber" placeholder="Enter your contact number" required>
+                <small id="contactHelp" class="form-text text-muted"></small>
+              </div>
+    
+              <!-- Email -->
+              <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" class="form-control" id="email" placeholder="Enter your email" required>
+                <small id="emailHelp" class="form-text text-muted"></small>
+              </div>
+    
+              <!-- Password -->
+              <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" class="form-control" id="password" placeholder="Enter your password" required>
+                <small id="passwordHelp" class="form-text text-muted"></small>
+              </div>
+    
+              <!-- Date of Birth -->
+              <div class="form-group">
+                <label for="dob">Date of Birth</label>
+                <input type="date" class="form-control" id="dob" required>
+                <small id="dobHelp" class="form-text text-muted"></small>
+              </div>
             <div class="form-group">
                 <label>Gender</label><br>
                 <div class="d-flex align-items-center">
@@ -142,7 +153,7 @@
     <div class="brand-section">
         <div class="left">
              <h3>Explore Hub</h3>
-            <img src="images\main-Logo.jpg" alt="Brand Image" class="brand-image">
+            <img src="images\side image.jpg" alt="Brand Image" class="brand-image">
         </div>
         <div class="right">
             <form id="booking-form" onsubmit="return submitForm(event);">
